@@ -1,0 +1,212 @@
+.bg-img-1 {
+  background-image: url(https://images.squarespace-cdn.com/content/v1/5c77b34d70468011052d9e6f/1602447453127-75O2T0RI8DDMVV076QJS/wheel-example-sml.jpg?format=2500w);
+  height: 90vh;
+  width: 100vw;
+
+  background-position: 0px 0px;
+  animation: animatedBackground 5s linear infinite alternate;
+}
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 25% 0;
+  }
+}
+.bg-img {
+  background-image: url(https://img.freepik.com/premium-photo/hobby-making-clay-vessels-traditional-way-by-potter_161299-1896.jpg);
+  background-size: cover;
+  height: 90vh;
+  /* background-position: 0px 0px;
+  animation: animatedBackground 5s linear infinite alternate; */
+}
+.bg-img-2 {
+  height: 90vh;
+  background-size: cover;
+
+  /* background-position: 0px 0px;
+  animation: animatedBackground-1 5s linear infinite alternate; */
+  background-image: url(https://img.freepik.com/premium-photo/potter-teaches-how-make-clay-pot_105818-361.jpg);
+}
+
+.text-home {
+  font-size: 100px;
+  letter-spacing: 30px;
+  font-family: Georgia;
+  font-weight: bold;
+}
+.bg-nav {
+  position: absolute;
+  width: 100%;
+}
+.nav-button {
+  font-family: serif;
+  color: rgb(255, 255, 255);
+  padding: 3px;
+  margin: 3px;
+}
+.nav-button:hover {
+  background-color: white;
+  color: black;
+}
+.home-btn-1 {
+  background-color: white;
+  border: none;
+  width: 180px;
+  height: 45px;
+  color: rgb(94, 93, 93);
+  font-family: cursive;
+  text-transform: uppercase;
+}
+.home-btn-1:hover {
+  background-color: grey;
+  color: white;
+}
+.text-awesome {
+  font-size: 40px;
+  letter-spacing: 15px;
+  font-family: Courier New;
+  font-weight: 700;
+  color: brown;
+
+  border-bottom: 2px solid brown;
+}
+.home-card-head {
+  margin-top: 30px;
+  text-align: center;
+  color: brown;
+  font-family: Garamond;
+  letter-spacing: 2px;
+}
+.card-img-home {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.text-ceramic {
+  color: rgb(161, 84, 11);
+  text-align: center;
+  margin-top: 80px;
+  font-size: 50px;
+  font-family: Courier New;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+.bg-img-col-home {
+  background-image: url(https://i.pinimg.com/564x/79/ab/dd/79abddb9e0325f6fbe8dbaf3e4f5e2e8.jpg),
+    linear-gradient(black, rgba(0, 0, 0, 0.822), rgba(0, 0, 0, 0.808));
+  height: 70vh;
+  width: 350px;
+  background-size: cover;
+}
+.bg-img-col-home-1 {
+  background-image: url(https://i.pinimg.com/564x/af/5d/3c/af5d3c74d84177695a903e0b1c4686e2.jpg);
+  height: 70vh;
+  width: 350px;
+  background-size: cover;
+}
+.bg-img-col-home-2 {
+  background-image: url(https://i.pinimg.com/564x/a2/b9/72/a2b97247b2b97a828a1790cd4773023f.jpg);
+  height: 70vh;
+  width: 350px;
+  background-size: cover;
+}
+
+.bg-img-4 {
+  background-image: url(https://149354335.v2.pressablecdn.com/wp-content/uploads/2017/11/nest-line-header-1.jpg);
+  height: 60vh;
+  background-size: cover;
+}
+.footer-head {
+  font-family: serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.footer-text {
+  font-family: cursive;
+}
+
+.about-text:hover {
+
+  font-size: 50px;
+  text-shadow:0px 0px 1px grey,0px 2px grey;
+}
+
+.shop-head:hover{
+ 
+ font-size: 55px;
+ 
+
+}
+.login-card{
+  height: 80vh;
+  width: 500px;
+  margin-top: 120px;
+  margin-left: 400px;
+  border: none;
+  
+}
+.signup-heading {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  color: rgb(26, 26, 87);
+  font-family: serif;
+}
+.input-signup {
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(26, 26, 87);
+}
+.input-signup::placeholder {
+  color: white;
+  font-family: cursive;
+  font-size: 20px;
+  padding: 10px;
+}
+.bg-img-signup{
+  background-image: url(https://c.pxhere.com/photos/4c/cf/easter_card_bunny_rabbit_easter_special_easter_offer_holiday_campaign-1209105.jpg!d);
+  background-size: cover;
+  height: 100vh;
+}
+.pagenotfound-bg-img{
+ 
+  background-image: url(https://c.pxhere.com/photos/6b/65/easter_bunny_chocolate_egg-1381738.jpg!d);
+  height: 100vh;
+  background-size: cover;
+}
+
+.name {
+  
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.name:hover {
+  font-size: 30px;
+  text-shadow: 0px 0px 5px white, 0px 0px 10px white, 0px 0px 15px grey,
+    0px 0px 20px grey, 0px 0px 25px grey;
+}
+.img-about-swiper {
+  display: block;
+  margin: auto;
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+}
+.img-about-swiper:hover{
+  width: 170px;
+  height: 120px;
+  border-radius: 20px;
+
+}
+.about-swiper-1 {
+  margin-bottom: 50px;
+  border: none;
+  margin-top: 20px;
+}
