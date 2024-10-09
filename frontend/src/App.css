@@ -1,6 +1,6 @@
 .bg-img-1 {
   background-image: url(https://images.squarespace-cdn.com/content/v1/5c77b34d70468011052d9e6f/1602447453127-75O2T0RI8DDMVV076QJS/wheel-example-sml.jpg?format=2500w);
-  height: 90vh;
+  height: 70vh;
   width: 100vw;
 
   background-position: 0px 0px;
@@ -17,12 +17,12 @@
 .bg-img {
   background-image: url(https://img.freepik.com/premium-photo/hobby-making-clay-vessels-traditional-way-by-potter_161299-1896.jpg);
   background-size: cover;
-  height: 90vh;
+  height: 70vh;
   /* background-position: 0px 0px;
   animation: animatedBackground 5s linear infinite alternate; */
 }
 .bg-img-2 {
-  height: 90vh;
+  height: 70vh;
   background-size: cover;
 
   /* background-position: 0px 0px;
@@ -31,8 +31,8 @@
 }
 
 .text-home {
-  font-size: 100px;
-  letter-spacing: 30px;
+  font-size: 70px;
+  letter-spacing: 20px;
   font-family: Georgia;
   font-weight: bold;
 }
@@ -134,9 +134,9 @@
   text-shadow:0px 0px 1px grey,0px 2px grey;
 }
 
-.shop-head:hover{
+.shop-head{
  
- font-size: 55px;
+ font-size: 15px;
  
 
 }
@@ -210,3 +210,34 @@
   border: none;
   margin-top: 20px;
 }
+/* Add this CSS to your styles file */
+
+.fixed-sidebar {
+  position: sticky; /* Sticky position for larger screens */
+  top: 20px; /* Distance from the top of the viewport */
+  max-height: calc(100vh - 40px); /* Adjust for header/footer height */
+  overflow-y: auto; /* Add scroll if content exceeds the height */
+  background-color: #f8f9fa; /* Optional: Background color for better visibility */
+  transition: transform 0.3s ease; /* Smooth transition for open/close */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Styles for small screens */
+@media (max-width: 767px) {
+  .fixed-sidebar {
+    position: relative; /* Change to relative to allow normal flow */
+    width: 100%; /* Full width for small screens */
+    height: auto; /* Allow height to adjust */
+    transform: translateY(-100%); /* Hide off-screen */
+  }
+
+  .fixed-sidebar.d-block {
+    transform: translateY(0); /* Show sidebar when active */
+  }
+}
+
+/* Optional: Style for the toggle button */
+.btn {
+  margin-bottom: 10px; /* Add some space below the button */
+}
+

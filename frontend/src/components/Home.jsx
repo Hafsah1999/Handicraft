@@ -12,9 +12,6 @@ import 'swiper/css/pagination';
 // import required modules
 import { EffectFade, Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-
-
-
 const Home = () => {
   return (
     <>
@@ -22,50 +19,7 @@ const Home = () => {
 
       {/* Header */}
 
-      <nav className=" navbar  bg-dark  bg-opacity-75 p-0 "  >
-        <div className="container d-flex flex-wrap">
-          <ul className="nav me-auto ">
-            <li className="nav-item">
-              <a
-                to="/"
-                className="nav-link text-white px-2 "
-
-              >
-                Welcome to creator theme
-              </a>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link  px-2">
-                <i className="fa-brands fa-twitter text-white"></i>
-
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link  px-2">
-                <i className="fa-brands fa-facebook text-white"></i>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link  px-2">
-                <i className="fa-brands fa-instagram text-white"></i>
-              </Link>
-            </li>
-
-          </ul>
-          <ul className="nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link text-white  px-2">
-                Phone : 9876543210
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/" className="nav-link text-white px-2">
-                Email : creator12@gmail.com
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+   
 
 
 
@@ -88,50 +42,14 @@ const Home = () => {
         }}
 
         modules={[EffectFade, Autoplay, Navigation, Pagination]}
-        className="mySwiper"
+        className="mySwiper mb-5"
       >
 
 
 
         <SwiperSlide>
           <div className="bg-img-1">
-            <header className=" p-0  w-100 bg-dark bg-opacity-25" >
-              <div className="container d-flex flex-wrap  ">
-                <a
-                  to="/"
-                  className="text-decoration-none  me-lg-auto  "
-                >
-
-                  <span className="fs-1 text-white  fw-bold" style={{ fontFamily: "	Brush Script MT" }}>Creator</span>
-                </a>
-                <ul className="nav  d-flex flex-wrap justify-content-center align-items-center">
-                  <li className="nav-item">
-                    <Link to="/Login" className="nav-link nav-button bg-white text-dark p-1 fs-4 px-3">
-                      Login
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/Signup" className="nav-link nav-button fs-4 px-3">
-                      Signup
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-cart-shopping"></i>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-magnifying-glass"></i>
-                    </Link>
-                  </li>
-
-
-                </ul>
-              </div>
-
-            </header>
+          
 
             <div className="container-fluid  bg-opacity-25 bg-dark" style={{ height: "80vh" }}>
 
@@ -148,43 +66,7 @@ const Home = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="bg-img">
-            <header className=" p-0  w-100 bg-dark bg-opacity-25" >
-              <div className="container d-flex flex-wrap  ">
-                <a
-                  to="/"
-                  className="text-decoration-none  me-lg-auto  "
-                >
-
-                  <span className="fs-1 text-white  fw-bold" style={{ fontFamily: "	Brush Script MT" }}>Creator</span>
-                </a>
-                <ul className="nav  d-flex flex-wrap justify-content-center align-items-center">
-                  <li className="nav-item">
-                    <Link to="/Login" className="nav-link nav-button bg-white text-dark p-1 fs-4 px-3">
-                      Login
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/Signup" className="nav-link nav-button fs-4 px-3">
-                      Signup
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-cart-shopping"></i>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-magnifying-glass"></i>
-                    </Link>
-                  </li>
-
-
-                </ul>
-              </div>
-
-            </header>
+        
 
             <div className="container-fluid  bg-opacity-25 bg-dark" style={{ height: "80vh" }}>
 
@@ -201,44 +83,7 @@ const Home = () => {
 
         <SwiperSlide>
           <div className="bg-img-2">
-            <header className=" p-0  w-100 bg-dark bg-opacity-25" >
-              <div className="container d-flex flex-wrap  ">
-                <a
-                  to="/"
-                  className="text-decoration-none  me-lg-auto  "
-                >
-
-                  <span className="fs-1 text-white  fw-bold" style={{ fontFamily: "	Brush Script MT" }}>Creator</span>
-                </a>
-                <ul className="nav  d-flex flex-wrap justify-content-center align-items-center">
-                  <li className="nav-item">
-                    <Link to="/Login" className="nav-link nav-button bg-white text-dark p-1 fs-4 px-3">
-                      Login
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/Signup" className="nav-link nav-button fs-4 px-3">
-                      Signup
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-cart-shopping"></i>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/" className="nav-link nav-button fs-5 px-3">
-                      <i className="fa-solid fa-magnifying-glass"></i>
-                    </Link>
-                  </li>
-
-
-                </ul>
-              </div>
-
-            </header>
-
+           
             <div className="container-fluid  bg-opacity-25 bg-dark" style={{ height: "80vh" }}>
 
 
@@ -256,7 +101,7 @@ const Home = () => {
 
 
       {/* awesome story */}
-      <div className="row ">
+      <div className="row my-5">
         <div className="col-md-7">
           <div className="container  ms-5 mt-5">
             <h2 className="text-awesome">AWESOME STORY</h2>
@@ -282,18 +127,9 @@ const Home = () => {
 
         </div>
       </div>
-
-
-
       {/* reviews */}
-
-
-
       <div className="bg-img-2" >
         <div className="container-fluid bg-dark bg-opacity-25 " style={{ position: "relative", height: "90vh" }}>
-
-
-
           <div className="container " style={{ height: "90vh" }}>
             <div className="row ">
               <div className="col-md-4" >
@@ -320,14 +156,11 @@ const Home = () => {
                 <div className="card  bg-light bg-opacity-50 shadow" style={{ top: "150px" }}>
                   <h6 className="home-card-head">FANTASTIC WEB SKILLS</h6>
                   <p className=" me-4 mt-3 mb-5 text-muted" style={{ marginLeft: "30px", fontSize: "15px" }}>Lorem ipsum amet consectetur adipisicing elit. Saepe, quidem nostrum. Quibusdam, perspiciatis exercitationem alias.</p>
-
                 </div>
-
                 <div className="card bg-transparent mb-4" style={{ top: "190px", border: "none" }}>
                   <div className="row">
                     <div className="col-md-3">
                       <img className='card-img-home' src="https://i.pinimg.com/564x/0b/58/2f/0b582f85c092dbaefa55f4508bf06b8d.jpg" alt="" />
-
                     </div>
                     <div className="col-md-6">
                       <h5 className="text-white mt-3 ms-3 mb-1" style={{ fontFamily: "serif" }}>UNO MATTES</h5>
@@ -335,7 +168,6 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-
               </div>
 
               <div className="col-md-4" >
@@ -370,7 +202,7 @@ const Home = () => {
 
       {/* ceramic pottery */}
 
-      <div className="container">
+      <div className="container ">
         <h2 className="text-ceramic">ceramic pottery</h2>
         <p className="text-center text-secondary fs-5 mt-4 mb-5"> Dolor sit amet consectetur adipisicing elit. Culpa unde doloremque voluptates  <br />esse, rerum enim nemo! Facere dolor placeat deserunt.</p>
 
@@ -640,6 +472,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        
         <div className="container">
           <p className="text-center text-danger p-4" style={{ fontFamily: "cursive" }}>@2023 | All Right Reserved</p>
         </div>

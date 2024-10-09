@@ -1,21 +1,27 @@
-import { Link } from 'react-router-dom'
-import  { useEffect, useState } from 'react'
-
-
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { FaSearch } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for the toggle button
 
 const Shop = () => {
-  // const navigate = useNavigate();
-
-  const [recipeList, setrecipeList] = useState([]);
+  const [productList, setproductList] = useState([]);
   const [masterList, setMasterList] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // State to track sidebar visibility
+  const categories = [
+    
+    "Woodwork",
+    "Pottery",
+    "Jute",
+    "Handmade",
+    "Metalware",
+    "Carpets",
+  ];
 
   const fetchUserData = async () => {
     const res = await fetch('http://localhost:5000/product/getall');
-    console.log(res.status);
     if (res.status === 200) {
       const data = await res.json();
-      console.log(data);
-      setrecipeList(data);
+      setproductList(data);
       setMasterList(data);
     }
   };
@@ -24,130 +30,82 @@ const Shop = () => {
     fetchUserData();
   }, []);
 
-  // const filterRecipe = (e) => {
-  //   const value = e.target.value;
-  //   setrecipeList(masterList.filter((recipe) => { 
-  //     return (recipe.pn.toLowerCase().includes(value.toLowerCase())
-  //      || recipe.category.toLowerCase().includes(value.toLowerCase())) }));
-  // }
-
-  const filterRecipe = (e) => {
+  const filterproduct = (e) => {
     const value = e.target.value;
-    setrecipeList(masterList.filter((recipe) => {
-      return (recipe.pname.toLowerCase().includes(value.toLowerCase()))
-    }))
-    
-  }
+    setproductList(masterList.filter((product) => {
+      return product.pname.toLowerCase().includes(value.toLowerCase());
+    }));
+  };
 
+  const filterByCategory = (category) => {
+    const filteredData = masterList.filter(product => product.category === category);
+    setproductList(filteredData);
+  };
 
-//   const filterRecipe = (e) => {
-//     const value = e.target.value
-//     let filteredProduct = masterList.filter((product) => {
-//         return product.pname.toLowerCase().includes(value.toLowerCase());
-//     });
-//    setMasterList(filteredProduct)
-// };
-
-  const displayRecipeData = () => {
-    if (recipeList.length === 0) {
-      return <h1 className='text-center fw-bold' style={{ color: "seagreen" }}>No Data Found</h1>
+  const displayproductData = () => {
+    if (productList.length === 0) {
+      return <h1 className='text-center fw-bold' style={{ color: "seagreen" }}>No Data Found</h1>;
     }
 
-    return recipeList.map((recipe) => (
-      <>
-        <div className='col-md-3 mt-4 mb-4'>
-          <div className="card bg-transparent shadow" style={{border:"none"}}>
-            <img src={'http://localhost:5000/' + recipe.image} alt="" className="card-img-top img-fluid" style={{ objectFit: "cover", height: 250 }} />
-
-            <div className="card-footer" style={{border:"none",  height:"200px"}}>
-              <h3 className=' fw-semibold mt-3 mb-3' style={{fontFamily:"serif"}}>{recipe.pname}</h3>
-              <p className='text-secondary' style={{fontFamily:"cursive"}}>{recipe.pdetail}</p>
-              {/* <button className='btn btn-dark mb-2 me-1 px-3' onClick={ () => { navigate('/ShowRecipe/'+recipe._id) }}>Click to View</button> */}
-            </div>
+    return productList.map((product) => (
+      <div className='col-md-3 mt-4 mb-4' key={product._id}>
+        <div className="card bg-transparent shadow" style={{ border: "none" }}>
+          <img src={'http://localhost:5000/' + product.image} alt="" className="card-img-top img-fluid" style={{ objectFit: "cover", height: 250 }} />
+          <div className="card-footer" style={{ border: "none", height: "200px" }}>
+            <h3 className='fw-semibold mt-3 mb-3' style={{ fontFamily: "serif" }}>{product.pname}</h3>
+            <p className='text-secondary' style={{ fontFamily: "cursive" }}>{product.category}</p>
+            <Link to={`/view-product/${product._id}`} className="btn btn-primary">
+              View Product
+            </Link>
           </div>
         </div>
-      </>
-    ))
-  }
+      </div>
+    ));
+  };
 
   return (
     <>
-
       {/* header */}
-      <header className=" p-0 sticky-top  w-100 bg-light" >
-        <div className="container d-flex flex-wrap  ">
-          <a
-            to="/"
-            className="text-decoration-none  me-lg-auto  "
-          >
+      <div className="container-fluid mb-5">
+        <div className="row">
+          {/* Toggle Button for Sidebar */}
+          <button className="btn btn-dark d-md-none" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            {sidebarOpen ? <FaTimes /> : <FaBars />} {/* Toggle between open and close icons */}
+          </button>
 
-            <span className="fs-1 text-dark  fw-bold" style={{ fontFamily: "	Brush Script MT" }}>Creator</span>
-          </a>
-          <ul className="nav  d-flex flex-wrap justify-content-center align-items-center">
+          {/* Sidebar */}
+          <div className={`col-md-3 fixed-sidebar ${sidebarOpen ? 'd-block' : 'd-none'} d-md-block`}> {/* Update the sidebar class */}
+            <div className="container-fluid py-5">
+              <div className="container border-bottom p-2">
+                <h1 className="text-center shop-head mb-3 fw-semibold" style={{ fontFamily: "Garamond", textTransform: "uppercase" }}>Find Things You Will Love</h1>
+                <form className="input-group mb-4  w-100 mx-auto">
+                  <input type="search" style={{ fontSize: "12px" }} role="search" className="form-control h-25" placeholder='Search' onChange={filterproduct} />
+                  <button className="btn btn-dark " style={{ fontSize: "10px" }}><FaSearch /></button>
+                </form>
+              </div>
+            </div>
+            <h4 className="fw-semibold text-center mb-3" style={{ fontFamily: "serif" }}>Categories</h4>
+            <ul className="list-group">
+              {categories.map((category) => (
+                <li className="list-group-item" key={category}>
+                  <button className='nav-link' onClick={() => filterByCategory(category)}>
+                    {category}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <li className="nav-item">
-              <Link to="/Shop" className="nav-link nav-button text-dark fs-4 px-3">
-                Shop
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/AboutUs" className="nav-link text-dark nav-button fs-4 px-3">
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Home" className="nav-link  text-dark fs-5 px-3">
-                <i className="fa-solid fa-arrow-right-from-bracket"></i>
-              </Link>
-            </li>
-
-
-
-          </ul>
-        </div>
-
-      </header>
-
-      {/* main */}
-
-      {/* heading */}
-
-      <div className="container-fluid  p-5 bg-dark bg-opacity-25">
-        <div className="container shadow p-4">
-          <h1 className="text-center shop-head mb-3 display-5 fw-semibold" style={{ fontFamily: "Garamond", textTransform: "uppercase" }}>Find Things you will love</h1>
-          <form className="input-group mb-4 w-75 mx-auto">
-            <input type="search" role="search" className="form-control" placeholder='Search' onChange={filterRecipe} />
-            <button className="btn btn-dark">Search</button>
-          </form>
+          {/* Main Content */}
+          <div className="col-md-9">
+            <div className="row">
+              {displayproductData()}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* navbar */}
-      {/* <nav className="navbar">
-        <div className="container ">
-          <Link to="/All" className='nav-link'><h5 className="">All</h5></Link>
-          <Link to="/Metalware" className='nav-link'><h5 className="">Metalware</h5></Link>
-          <Link to="/Woodwork" className='nav-link'><h5 className="">Woodwork</h5></Link>
-          <Link to="/Pottery" className='nav-link'><h5 className="">Pottery</h5></Link>
-          <Link to="/Jute" className='nav-link'><h5 className="">Jute</h5></Link>
-          <Link to="/Carpets" className='nav-link'><h5 className="">Carpets </h5></Link>
-          <Link to="/Cards" className='nav-link'><h5 className="">Handmade cards </h5></Link>
-
-
-
-        </div>
-      </nav> */}
-
-      <div className="container-fluid bg-dark bg-opacity-25">
-        <div className="container">
-        <div className="row mt-5 mb-5">
-          {displayRecipeData()}
-        </div>
-      </div>
-      </div>
-
-      {/* footer */}
-
+      {/* Footer */}
       <footer>
         <div className="bg-img-4">
           <div className="container-fluid bg-dark bg-opacity-50" style={{ height: "60vh" }}>
@@ -159,7 +117,7 @@ const Shop = () => {
                   <Link to="/Shop" className="nav-link"><p className="footer-text">Shop</p></Link>
                   <Link to="/AboutUs" className="nav-link">  <p className="footer-text">About Us</p></Link>
                   <Link to="/Login" className="nav-link"><p className="footer-text">Login</p></Link>
-                  <Link to="/Register" className="nav-link">  <p className="footer-text">Register</p></Link>
+                  <Link to="/Signup" className="nav-link">  <p className="footer-text">Signup</p></Link>
                 </div>
 
                 <div className="col-md-6 mt-5 text-white text-center">
@@ -189,13 +147,13 @@ const Shop = () => {
             </div>
           </div>
         </div>
+        
         <div className="container">
           <p className="text-center text-danger p-4" style={{ fontFamily: "cursive" }}>@2023 | All Right Reserved</p>
         </div>
       </footer>
-
     </>
-  )
+  );
 }
 
-export default Shop
+export default Shop;

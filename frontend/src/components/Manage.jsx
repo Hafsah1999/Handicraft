@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Manage = () => {
     const [Data, setData] = useState([]);
 
-
-    //User fetch func
+    // User fetch function
     const fetchUserData = async () => {
         const res = await fetch('http://localhost:5000/product/getall');
 
@@ -14,62 +14,53 @@ const Manage = () => {
             console.log(data);
             setData(data);
         }
-    }
+    };
 
     useEffect(() => {
         fetchUserData();
-    }, [])
+    }, []);
 
-    //Delete func
-    const deleteFuction = async (id) => {
+    // Delete function
+    const deleteFunction = async (id) => {
         console.log(id);
-
-        const res = await fetch('http://localhost:5000/product/delete/' + id, { method: 'DELETE' })
+        const res = await fetch('http://localhost:5000/product/delete/' + id, { method: 'DELETE' });
 
         if (res.status === 200) {
             fetchUserData();
         }
-    }
+    };
 
-
-    //User Display func
+    // User display function
     const displayUsers = () => {
         return Data.map((obj) => (
-            <>
-                <tr>
-                    <td>{obj.pname}</td>
-                    <td>{obj.pdetail}</td>
-                
-                  
-                    <td>
-                        <button className="btn btn-danger" onClick={() => {deleteFuction(obj._id)}}>Delete</button>
-                    </td>
-                </tr>
-            </>
-        ))
-    }
+            <tr key={obj._id} >
+                 <td>
+                    <img src={`http://localhost:5000/${obj.image}`} alt={obj.pname} style={{ width: '60px', height: '60px' }} />
+                </td>
+                <td >{obj.pname}</td>
+                <td>{obj.category}</td>
 
-
+                <td>{obj.pdetail}</td>
+               
+                <td>
+                    <Link to={`/update/${obj._id}`} className="btn btn-warning me-2">Update</Link>
+                    <button className="btn btn-danger" onClick={() => { deleteFunction(obj._id) }}>Delete</button>
+                </td>
+            </tr>
+        ));
+    };
 
     return (
         <div>
-
-            <header className="bg-danger text-white ">
-                <div className="container py-5">
-                    <h1 className="">Manage User</h1>
-
-                </div>
-            </header>
-
             <div className="container mt-5">
-                <table className="table table-dark">
-                    <thead>
-                        <tr>
-                            <th>pname</th>
-                            <th>pdetail</th>
-                            <th></th>
-                            
-                           
+                <table className="table table-striped table-hover">
+                    <thead className="table-dark">
+                    <tr>
+                    <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Product Detail</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,9 +68,8 @@ const Manage = () => {
                     </tbody>
                 </table>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default Manage
+export default Manage;

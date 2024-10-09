@@ -21,6 +21,24 @@ router.post("/update", (req, res) => {
   res.send("updated data");
 });
 
+router.get('/getbycategory/:category', async (req, res) => {
+  const { category } = req.params; // Get the category from the request parameters
+
+  try {
+    // Fetch products that match the category
+    const products = await Model.find({ category }); // Adjust the query if needed (e.g., case sensitivity)
+
+    // Check if products were found
+    if (products.length > 0) {
+      return res.status(200).json(products);
+    } else {
+      return res.status(404).json({ message: 'No products found in this category.' });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Server error' });
+  }
+});
 
 router.get("/getall", (req, res) => {
   Model.find({}) //empty brackets will give all the data from the database
